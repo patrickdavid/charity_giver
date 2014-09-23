@@ -18,7 +18,23 @@ $navbar-default-color: $light-orange;
   border-width: 1px;
   border-style: solid;
   border-color: black;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 2s;
 }
+
+.charity:hover {
+  background-color: #D1DBD0;
+  padding: 30px;
+  margin: 10px;
+  width: 30%;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 2s;
+}
+
 
 .donation {
   background-color: #BFBFBF;
