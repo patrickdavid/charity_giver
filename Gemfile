@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'paperclip', '~> 4.2'
 gem 'stripe'
+gem 'bootstrap_form'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'letter_opener'

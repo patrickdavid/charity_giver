@@ -1,10 +1,16 @@
 class ChargesController < ApplicationController
   def new
-end
+    if current_user
+    @amount = Charity.count_cart_int(current_user)
+    end
+
+  end
 
 def create
   # Amount in cents
-  @amount = 500
+  if current_user
+  @amount = Charity.count_cart_int(current_user)
+  end
 
   customer = Stripe::Customer.create(
     :email => 'example@stripe.com',

@@ -1,0 +1,7 @@
+<%= form_for [@user, @charity, @donation] do |f| %>
+<%= f.label :amount %>
+<%= f.text_field :amount %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.hidden_field :charity_id, :value => @charity.id %>
+<%= f.submit(:class => "btn btn-primary") %>
+<% end %>

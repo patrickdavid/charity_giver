@@ -1,0 +1,5 @@
+<%= @donation.charity.name %>
+$<%= @donation.amount %>
+<%= link_to "Delete", user_charity_donation_path({ :user_id => current_user.id, :charity_id => @donation.charity_id, :id => @donation.id }),
+                        :data => {:confirm => "You sure?",
+                        :method => "delete"} %>

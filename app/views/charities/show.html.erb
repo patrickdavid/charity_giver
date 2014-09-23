@@ -1,0 +1,7 @@
+<%= @charity.name %>
+
+<% if current_user != nil %>
+
+<%= link_to "Make donation", new_user_charity_donation_path(:user_id => current_user, :charity_id => @charity.id) %>
+
+<% end %>

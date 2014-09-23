@@ -1,0 +1,6 @@
+<% @donations_for_user.each do |donation| %>
+<div class="donation">
+<%= link_to donation.charity.name, user_charity_donation_path(:user_id => current_user.id, :charity_id => donation.charity_id, :id => donation.id) %>
+<div class="price">$<%= donation.amount %></div>
+</div>
+<% end %>

@@ -1,0 +1,37 @@
+$navbar-default-bg: #312312;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+
+
+@import "bootstrap";
+
+.navbar {
+  background-color: #BFBFBF;
+}
+
+.charity {
+  background-color: #BFBFBF;
+  padding: 30px;
+  margin: 10px;
+  width: 30%;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.donation {
+  background-color: #BFBFBF;
+  padding: 10px;
+  margin: 10px;
+  width: 30%;
+  border-radius: 5px;
+
+}
+
+.price {
+  float: right;
+}
+
+
+body { padding-top: 60px; }
