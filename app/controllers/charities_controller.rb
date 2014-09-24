@@ -1,6 +1,18 @@
 class CharitiesController < ApplicationController
   def index
     @charities = Charity.all
+    @charge = Charge.new
+    @user_donations = Donation.where(:user_id => current_user.id)
+    cart_total = []
+    @user_donations.each do |donation|
+      result = Donation.find_by_id(donation.id)
+      donation = Donation.find_by_id(result.id)
+      cart_total << donation.amount
+
+    end
+    @cart = cart_total.count
+
+
     if current_user
       @cart = Donation.where(:user_id => current_user.id)
     end

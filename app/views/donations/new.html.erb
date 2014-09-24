@@ -3,5 +3,21 @@
 <%= f.text_field :amount %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.hidden_field :charity_id, :value => @charity.id %>
+<br>
+<br>
+<%= label(:payment, "Payment Plans") %>
+<br>
+
+<%= f.radio_button(:plan, "Once") %>
+<%= label(:plan, "One time") %>
+<br>
+<%= f.radio_button(:plan, "Monthly") %>
+<%= label(:plan, "Monthly") %>
+<br>
+<%= f.radio_button(:plan, "Annual") %>
+<%= label(:plan, "Annual") %>
+<br>
+<br>
+
 <%= f.submit(:class => "btn btn-primary") %>
 <% end %>

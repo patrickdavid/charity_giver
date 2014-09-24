@@ -22,6 +22,15 @@
             <div class="cart">
               <p class="cart"> Your total is <%= Charity.count_cart(current_user) %> </p><button class="btn btn-default"><%= link_to "checkout", new_charge_path %></span></button>
             </div>
+            <div class="cart">
+              <% if @charge != nil %>
+                <%= form_for @charge do |f| %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.hidden_field :amount, :value => Charity.count_cart_int(current_user) %>
+                <%= f.submit %>
+                <% end %>
+              <% end %>
+            </div>
             <% end %>
             <% if user_signed_in? %>
               Logged in as <strong><%= current_user.email %></strong>

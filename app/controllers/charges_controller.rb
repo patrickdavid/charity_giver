@@ -1,4 +1,10 @@
 class ChargesController < ApplicationController
+  def index
+    @charges = Charge.all
+    @charge = Charge.create(:user_id => params[:user_id], :amount => params[:amount])
+    redirect_to new_charge_path
+  end
+
   def new
     @charge = Charge.new
     if current_user
@@ -8,13 +14,13 @@ class ChargesController < ApplicationController
   end
 
 def create
-    @charge = Charge.create(charge_params)
+  @charge = Charge.create(charge_params)
   # Amount in cents
   if current_user
     @amount = Charity.count_cart_int(current_user)
   end
   customer = Stripe::Customer.create(
-      :email => 'example@stripe.com',
+      :email => current_user.email,
       :card  => params[:stripeToken]
     )
 
@@ -28,24 +34,12 @@ def create
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to charges_path
-    end
-
-
-
-   charge_card
-   @charge = Charge.new(charge_params)
-   if @charge.save
-
-   redirect to where
-
-
-
-
-private
-  def charge_card
 
   end
 
+private
+
   def charge_params
     params.require(:charge).permit(:user_id, :amount)
+  end
 end
